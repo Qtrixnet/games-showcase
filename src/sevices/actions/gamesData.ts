@@ -5,6 +5,7 @@ import {
 } from '../reducers/gamesData';
 import api from "../../utils/Api";
 
+// @ts-ignore
 export const getGamesInfo = () => (dispatch) => {
   dispatch(gamesRequestAction());
   return api.getGamesInfo()
@@ -13,6 +14,7 @@ export const getGamesInfo = () => (dispatch) => {
     })
     .catch(error => {
       console.log(error);
+      // @ts-ignore
       dispatch(gamesFailedAction(error));
     })
 }
