@@ -1,0 +1,12 @@
+@import '../../style-variables/index';
+
+.app {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  color: $white;
+  background-color: $dark;
+  font-size: $text;
+  line-height: 1.2;
+  padding: $medium-gap $big-gap;
+}

@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
-import './App.css';
+import './app.scss';
+import {useEffect} from 'react';
 import {useDispatch} from "react-redux";
 import {getGamesInfo} from "../../sevices/actions/gamesData";
+import Header from "../header/header";
 
 function App() {
   const dispatch = useDispatch()
@@ -12,7 +13,8 @@ function App() {
   }, [dispatch])
 
   return (
-    <div className="App">
+    <div className="app">
+      <Header />
     </div>
   );
 }

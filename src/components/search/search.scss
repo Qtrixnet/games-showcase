@@ -1,0 +1,61 @@
+@import '../../style-variables/index';
+
+.search {
+  width: 100%;
+  position: relative;
+
+  &__input {
+    padding: $small-gap $small-gap $small-gap 42px;
+    border-radius: 50px;
+    border: 0;
+    width: 100%;
+    background-color: $search;
+    color: white;
+    transition: color .2s ease, background-color .2s ease;
+    background-image: url('../../assets/images/search-light.svg');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 16px 50%;
+
+    &:hover {
+      background-color: $white;
+      color: $search;
+      background-image: url('../../assets/images/search-dark.svg');
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $white;
+      color: $search;
+      background-image: url('../../assets/images/search-dark.svg');
+    }
+  }
+
+  &__hint {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translate(0, -50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: $secondary-text;
+    font-size: $subtext;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+
+    &--visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__hotkey {
+    border: 1px solid $secondary-text;
+    padding: 4px;
+    border-radius: 4px;
+  }
+}
