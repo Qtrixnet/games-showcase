@@ -21,4 +21,8 @@
       opacity: 0.8;
     }
   }
+
+  @media screen and (max-width: 786px) {
+    flex-direction: column;
+  }
 }

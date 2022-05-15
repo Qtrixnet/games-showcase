@@ -1,9 +1,9 @@
 import './search.scss';
-import {useCallback, useEffect, useRef, useState} from "react";
+import {FC, useCallback, useEffect, useRef, useState} from "react";
 
-const Search = () => {
-  const [isFocus, setIsFocus] = useState(false);
-  const inputRef = useRef(null);
+const Search: FC = () => {
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => {
     setIsFocus(true)
@@ -13,19 +13,17 @@ const Search = () => {
     setIsFocus(false)
   }
 
-  // @ts-ignore
-  const onKeyPress = useCallback((evt) => {
+  const onKeyPress = useCallback((evt: KeyboardEvent) => {
     if (evt.altKey && ['Enter'].includes(evt.code)) {
-      // @ts-ignore
-      inputRef?.current?.focus();
+      inputRef.current?.focus();
     }
   }, [])
 
   useEffect(() => {
-    window.addEventListener('keydown', onKeyPress)
+    window.addEventListener('keyup', onKeyPress)
 
     return () => {
-      window.removeEventListener('keydown', onKeyPress)
+      window.removeEventListener('keyup', onKeyPress)
     }
   }, [onKeyPress])
 

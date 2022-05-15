@@ -51,6 +51,10 @@
       opacity: 1;
       visibility: visible;
     }
+
+    @media screen and (max-width: 786px) {
+      display: none;
+    }
   }
 
   &__hotkey {
