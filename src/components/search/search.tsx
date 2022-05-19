@@ -1,9 +1,12 @@
 import './search.scss';
 import {FC, useCallback, useEffect, useRef, useState} from "react";
+import {useSelector} from "react-redux";
 
 const Search: FC = () => {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  // @ts-ignore
+  const gamesCount = useSelector(state => state.games.gamesCount)
 
   const handleFocus = () => {
     setIsFocus(true)
@@ -32,7 +35,7 @@ const Search: FC = () => {
       <input
         ref={inputRef}
         className="search__input"
-        placeholder="Search games"
+        placeholder={gamesCount > 0 ? `Search ${gamesCount?.toLocaleString()} games` : ''}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />

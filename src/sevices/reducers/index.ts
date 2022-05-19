@@ -1,6 +1,10 @@
 import {combineReducers} from "redux";
-import gamesReducer from './gamesData';
+import gamesReducer from './games';
+import genresReducer from './genres';
+import platformsReducer from './platforms';
 
 export const rootReducer = combineReducers({
-  games: gamesReducer
+  games: gamesReducer,
+  genres: genresReducer,
+  platforms: platformsReducer,
 });

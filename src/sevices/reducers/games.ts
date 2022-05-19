@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
   games: null,
   gamesRequest: false,
-  gamesFailed: false
+  gamesFailed: false,
+  gamesCount: null,
 };
 
 export const gamesSlice = createSlice({
@@ -15,19 +16,22 @@ export const gamesSlice = createSlice({
     },
     gamesSuccessAction: (state, action) => {
       state.gamesRequest = false;
-      state.games = action.payload
+      state.games = action.payload.results;
+      state.gamesCount = action.payload.count;
     },
     gamesFailedAction: (state) => {
       state.gamesRequest = false;
       state.gamesFailed = true;
-    }
+    },
   }
 })
 
 const {actions, reducer} = gamesSlice;
 
 export const {
-  gamesRequestAction, gamesSuccessAction, gamesFailedAction
+  gamesRequestAction,
+  gamesSuccessAction,
+  gamesFailedAction,
 } = actions;
 
 export default reducer

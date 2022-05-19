@@ -1,8 +1,8 @@
 import {
   gamesRequestAction,
   gamesSuccessAction,
-  gamesFailedAction
-} from '../reducers/gamesData';
+  gamesFailedAction,
+} from '../reducers/games';
 import api from "../../utils/Api";
 
 // @ts-ignore
