@@ -1,0 +1,9 @@
+@import '../../style-variables';
+
+.navigation {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $medium-gap;
+  }
+}

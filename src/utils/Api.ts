@@ -22,9 +22,29 @@ class Api {
     }
   }
 
-  //* Запрос инфо об играх
+  //* Запрос информации об играх
   getGamesInfo() {
     return fetch(`${this._baseUrl}games?key=${this._apiKey}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => this._requestResult(res))
+  }
+
+  //* Запрос списка жанров
+  getGenres() {
+    return fetch(`${this._baseUrl}genres?key=${this._apiKey}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => this._requestResult(res))
+  }
+
+  //* Запрос списка платформ
+  getPlatforms() {
+    return fetch(`${this._baseUrl}platforms?key=${this._apiKey}`, {
       headers: {
         "Content-Type": "application/json",
       },

@@ -1,4 +1,4 @@
-@import '../../style-variables/index';
+@import '../../style-variables';
 
 .header {
   display: flex;
@@ -13,7 +13,7 @@
     color: $primary-text;
     text-transform: uppercase;
     letter-spacing: 6px;
-    padding: $small-gap;
+    padding: $small-gap $small-gap $small-gap 0;
     transition: opacity .2s ease;
 
     &:hover {
