@@ -4,7 +4,6 @@ const initialState = {
   genres: null,
   genresRequest: false,
   genresFailed: false,
-  genresCount: null,
 };
 
 export const genresSlice = createSlice({
@@ -16,8 +15,7 @@ export const genresSlice = createSlice({
     },
     genresSuccessAction: (state, action) => {
       state.genresRequest = false;
-      state.genres = action.payload.results;
-      state.genresCount = action.payload.count;
+      state.genres = action.payload;
     },
     genresFailedAction: (state) => {
       state.genresRequest = false;

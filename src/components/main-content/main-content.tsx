@@ -1,5 +1,5 @@
 import './main-content.scss';
-import React, {FC} from 'react';
+import {FC} from 'react';
 import Navigation from "../navigation/navigation";
 
 const MainContent: FC = () => {

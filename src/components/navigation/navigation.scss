@@ -1,41 +1,9 @@
-@import '../../style-variables/index';
+@import '../../style-variables';
 
 .navigation {
-
   &__wrapper {
     display: flex;
     flex-direction: column;
     gap: $medium-gap;
-  }
-
-  &__title {
-    font-size: $subtitle;
-    font-weight: 700;
-  }
-
-  &__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  &__list-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: opacity 0.2s ease;
-
-    &:hover {
-      opacity: 0.8;
-      cursor: pointer;
-    }
-  }
-
-  &__list-item-image {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 6px;
   }
 }

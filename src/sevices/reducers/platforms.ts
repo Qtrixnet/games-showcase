@@ -15,7 +15,7 @@ export const platformsSlice = createSlice({
     },
     platformsSuccessAction: (state, action) => {
       state.platformsRequest = false;
-      state.platforms = action.payload.results;
+      state.platforms = action.payload;
     },
     platformsFailedAction: (state) => {
       state.platformsRequest = false;
