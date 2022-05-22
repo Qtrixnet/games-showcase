@@ -1,7 +1,8 @@
 @import '../../style-variables';
 
 .main-content {
-  padding-top: $medium-gap;
+  padding-top: $big-gap;
   display: grid;
   grid-template-columns: 200px 1fr;
+  gap: $big-gap;
 }

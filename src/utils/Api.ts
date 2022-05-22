@@ -4,15 +4,13 @@ class Api {
   private _baseUrl: string;
   private _apiKey: string;
 
-  // @ts-ignore
-  constructor(url, apiKey) {
+  constructor(url: string, apiKey: string) {
     this._baseUrl = url;
     this._apiKey = apiKey
   }
 
   //* Проверка статуса запроса
-  // @ts-ignore
-  _requestResult(res) {
+  _requestResult(res: Response) {
     if (res.ok) {
       return res.json();
     } else {
@@ -24,7 +22,7 @@ class Api {
 
   //* Запрос информации об играх
   getGamesInfo() {
-    return fetch(`${this._baseUrl}games?key=${this._apiKey}`, {
+    return fetch(`${this._baseUrl}games?key=${this._apiKey}&page_size=40`, {
       headers: {
         "Content-Type": "application/json",
       },

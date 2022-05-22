@@ -1,0 +1,34 @@
+.game-card-platforms-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+
+  &__item {
+    width: 14px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &--pc {
+      background-image: url('../../assets/images/pc.svg');
+    }
+
+    &--xbox {
+      background-image: url('../../assets/images/x-box.svg');
+    }
+
+    &--ios {
+      background-image: url('../../assets/images/ios.svg');
+    }
+
+    &--android {
+      background-image: url('../../assets/images/android.svg');
+    }
+
+    &--playstation {
+      background-image: url('../../assets/images/ps4.svg');
+    }
+  }
+}
