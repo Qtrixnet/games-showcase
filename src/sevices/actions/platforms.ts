@@ -6,9 +6,9 @@ import {
 import api from "../../utils/Api";
 import {getFilteredPlatforms} from "../../utils/utils";
 import {filteredPlatformsMock} from "../../mocks/platforms";
+import {AppDispatch} from "../store";
 
-// @ts-ignore
-export const getPlatforms = () => (dispatch) => {
+export const getPlatforms = () => (dispatch: AppDispatch) => {
   dispatch(platformsRequestAction());
   return api.getPlatforms()
     .then(platforms => {
@@ -17,7 +17,6 @@ export const getPlatforms = () => (dispatch) => {
     })
     .catch(error => {
       console.log(error);
-      // @ts-ignore
-      dispatch(platformsFailedAction(error));
+      dispatch(platformsFailedAction());
     })
 }

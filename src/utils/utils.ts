@@ -7,7 +7,7 @@ export const getFilteredPlatforms = (allPlatforms: IPlatform[], filteredPlatform
 
 export const numberWithCommas = (number: number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
 
-export const getGameCardPlatforms = (platforms: any) => {
+export const getGameCardPlatforms = (platforms: IPlatform[]) => {
   const platformsCollection = new Set()
   platforms.forEach((platformObject: any) => {
     filteredPlatformsMock.forEach(filteredPlatform => {

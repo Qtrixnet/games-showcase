@@ -6,9 +6,9 @@ import {
 import api from "../../utils/Api";
 import {getFilteredGenres} from "../../utils/utils";
 import {filteredGenresMock} from "../../mocks/genres";
+import {AppDispatch} from "../store";
 
-// @ts-ignore
-export const getGenres = () => (dispatch) => {
+export const getGenres = () => (dispatch: AppDispatch) => {
   dispatch(genresRequestAction());
   return api.getGenres()
     .then(genres => {
@@ -17,7 +17,6 @@ export const getGenres = () => (dispatch) => {
     })
     .catch(error => {
       console.log(error);
-      // @ts-ignore
-      dispatch(genresFailedAction(error));
+      dispatch(genresFailedAction());
     })
 }
