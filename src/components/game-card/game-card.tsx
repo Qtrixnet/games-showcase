@@ -3,21 +3,18 @@ import {FC, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {numberWithCommas} from "../../utils/utils";
 import GameCardPlatformsList from "../game-card-platforms-list/game-card-platforms-list";
+import {IGameCardProps, IGenre} from "../../sevices/types/types";
 
-// @ts-ignore
-const GameCard: FC = ({game}) => {
+const GameCard: FC<IGameCardProps> = ({game}) => {
+  const {platforms, background_image, name, slug, metacritic, added, released, genres, rating_top} = game;
   const [isHover, setIsHover] = useState(false);
   const [metacriticLevel, setMetaCriticLevel] = useState('')
-
   const handleMouseOver = () => setIsHover(true);
   const handleMouseLeave = () => setIsHover(false);
 
-  console.log(game)
-  const {platforms, background_image, name, slug, metacritic, added, released, genres, rating_top} = game;
-
   useEffect(() => {
-    if(metacritic) {
-      if(metacritic >= 70) {
+    if (metacritic) {
+      if (metacritic >= 70) {
         setMetaCriticLevel('success')
       } else if (metacritic < 70 && metacritic >= 50) {
         setMetaCriticLevel('warning')
@@ -25,7 +22,7 @@ const GameCard: FC = ({game}) => {
         setMetaCriticLevel('danger')
       }
     }
-  }, [])
+  }, [metacritic])
 
   return (
     <li
@@ -53,7 +50,10 @@ const GameCard: FC = ({game}) => {
           {name}
         </Link>
         <div className="game-card__wrapper">
-          <GameCardPlatformsList platforms={platforms}/>
+          {
+            // @ts-ignore
+            <GameCardPlatformsList platforms={platforms}/>
+          }
           {metacritic && (
             <div className={`game-card__metacritic game-card__metacritic--${metacriticLevel}`}>
               {metacritic}
@@ -75,7 +75,7 @@ const GameCard: FC = ({game}) => {
             <div className="game-card__drop-down-section">
               <p className="game-card__drop-down-title">Genres:</p>
               <div className="game-card__drop-down-info">{
-                genres.map((genre: any) => <p>{genre.name}</p>)
+                genres.map((genre: IGenre, idx) => <p key={idx}>{genre.name}</p>)
               }</div>
             </div>
             <div className="game-card__drop-down-section">

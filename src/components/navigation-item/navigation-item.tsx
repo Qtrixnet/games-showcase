@@ -14,7 +14,6 @@ const NavigationItem: FC<INavigationItemProps> = ({title, isNavigationPointsLoad
           ) : (
             <>
               {
-                // @ts-ignore
                 navigationPoints && navigationPoints.map((navigationPoint) => {
                   return (
                     <li

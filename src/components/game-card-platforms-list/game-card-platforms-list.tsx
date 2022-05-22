@@ -1,9 +1,9 @@
 import './game-card-platforms-list.scss';
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {getGameCardPlatforms} from "../../utils/utils";
+import {IGameCardPlatformsListProps} from "../../sevices/types/types";
 
-// @ts-ignore
-const GameCardPlatformsList = ({platforms}) => {
+const GameCardPlatformsList: FC<IGameCardPlatformsListProps> = ({platforms}) => {
   const [basePlatforms, setBasePlatforms] = useState([]);
 
   useEffect(() => {

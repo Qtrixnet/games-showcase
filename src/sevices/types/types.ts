@@ -51,6 +51,10 @@ export interface IGame {
   user_game: null,
 }
 
+export interface IGameCardProps {
+  game: IGame,
+}
+
 export interface INavigationItemProps {
   title: string,
   isNavigationPointsLoading: boolean,
@@ -60,4 +64,19 @@ export interface INavigationItemProps {
 
 export interface IGamesListProps {
   games: IGame[],
+}
+
+export interface IPlatformObject {
+  platform: {},
+  released_at: string | null,
+  requirements_en: string | null,
+  requirements_ru: string | null,
+}
+
+export interface IGameCardPlatformsListProps {
+  platforms: IPlatformObject[]
+}
+
+export interface IGamesListProps {
+  games: IGame[]
 }
