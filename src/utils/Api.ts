@@ -4,15 +4,13 @@ class Api {
   private _baseUrl: string;
   private _apiKey: string;
 
-  // @ts-ignore
-  constructor(url, apiKey) {
+  constructor(url: string, apiKey: string) {
     this._baseUrl = url;
     this._apiKey = apiKey
   }
 
   //* Проверка статуса запроса
-  // @ts-ignore
-  _requestResult(res) {
+  _requestResult(res: Response) {
     if (res.ok) {
       return res.json();
     } else {
