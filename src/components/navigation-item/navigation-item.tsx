@@ -2,15 +2,21 @@ import './navigation-item.scss';
 import {FC} from 'react';
 import {INavigationItemProps} from "../../sevices/types/types";
 import ProgressLoader from "../loaders/progress/progress";
+import {Link} from "react-router-dom";
 
 const NavigationItem: FC<INavigationItemProps> = ({title, isNavigationPointsLoading, navigationPoints, isGenres}) => {
   return (
     <section className="navigation-item">
-      <span className="navigation-item__title">{title}</span>
+      <Link
+        to={title.toLowerCase()}
+        className="navigation-item__link"
+      >
+        <span className="navigation-item__title">{title}</span>
+      </Link>
       <ul className="navigation-item__list">
         {
           isNavigationPointsLoading ? (
-            <ProgressLoader />
+            <ProgressLoader/>
           ) : (
             <>
               {
@@ -20,6 +26,10 @@ const NavigationItem: FC<INavigationItemProps> = ({title, isNavigationPointsLoad
                       key={navigationPoint.id}
                       className="navigation-item__list-item"
                     >
+                      <Link
+                        to={`${title.toLowerCase()}/${navigationPoint.slug}`}
+                        className="navigation-item__list-item-link"
+                      >
                       {
                         isGenres ? (
                           <img
@@ -29,11 +39,13 @@ const NavigationItem: FC<INavigationItemProps> = ({title, isNavigationPointsLoad
                           />
                         ) : (
                           <div className="navigation-item__list-item-image">
-                            <div className={`navigation-item__list-item-icon navigation-item__list-item-icon--${navigationPoint.slug}`}/>
+                            <div
+                              className={`navigation-item__list-item-icon navigation-item__list-item-icon--${navigationPoint.slug}`}/>
                           </div>
                         )
                       }
                       <span>{navigationPoint.name}</span>
+                    </Link>
                     </li>
                   )
                 })

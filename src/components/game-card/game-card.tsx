@@ -44,7 +44,7 @@ const GameCard: FC<IGameCardProps> = ({game}) => {
       </div>
       <div className="game-card__container">
         <Link
-          to={slug}
+          to={`games/${slug}`}
           className="game-card__link"
         >
           {name}

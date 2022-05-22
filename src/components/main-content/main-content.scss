@@ -5,4 +5,17 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: $big-gap;
+
+  &__container {
+    flex-direction: column;
+    border-radius: 8px;
+    min-height: 70vh;
+
+    &--loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed rgba($white, 0.5);
+    }
+  }
 }
