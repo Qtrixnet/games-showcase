@@ -13,8 +13,18 @@ const Navigation: FC = () => {
     <aside className="navigation">
       <nav className="navigation__container">
         <div className="navigation__wrapper">
-          <NavigationItem title="Platforms" isNavigationPointsLoading={isPlatformsRequest} navigationPoints={platforms}/>
-          <NavigationItem title="Genres" isNavigationPointsLoading={isGenresRequest} navigationPoints={genres}/>
+          <NavigationItem
+            title="Platforms"
+            isNavigationPointsLoading={isPlatformsRequest}
+            navigationPoints={platforms}
+            isGenres={false}
+          />
+          <NavigationItem
+            title="Genres"
+            isNavigationPointsLoading={isGenresRequest}
+            navigationPoints={genres}
+            isGenres={true}
+          />
         </div>
       </nav>
     </aside>

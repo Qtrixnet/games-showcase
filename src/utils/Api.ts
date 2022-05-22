@@ -24,7 +24,7 @@ class Api {
 
   //* Запрос информации об играх
   getGamesInfo() {
-    return fetch(`${this._baseUrl}games?key=${this._apiKey}`, {
+    return fetch(`${this._baseUrl}games?key=${this._apiKey}&page_size=40`, {
       headers: {
         "Content-Type": "application/json",
       },

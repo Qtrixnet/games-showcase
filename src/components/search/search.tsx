@@ -1,6 +1,7 @@
 import './search.scss';
 import {FC, useCallback, useEffect, useRef, useState} from "react";
 import {useSelector} from "react-redux";
+import {numberWithCommas} from "../../utils/utils";
 
 const Search: FC = () => {
   const [isFocus, setIsFocus] = useState<boolean>(false);
@@ -35,7 +36,7 @@ const Search: FC = () => {
       <input
         ref={inputRef}
         className="search__input"
-        placeholder={gamesCount > 0 ? `Search ${gamesCount?.toLocaleString()} games` : ''}
+        placeholder={gamesCount > 0 ? `Search ${numberWithCommas(gamesCount)} games` : ''}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
